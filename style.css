@@ -1,0 +1,567 @@
+:root {
+  --bg-color: #fdf6f6;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --primary-pink: #f4acb7;
+  --deep-rose: #d8829d;
+  --soft-text: #5a4a4e;
+  --accent-gold: #e2b4bd;
+  --shadow: 0 10px 30px rgba(216, 130, 157, 0.15);
+}
+
+/* ==========================================================================
+   Base & Layout
+   ========================================================================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: var(--bg-color);
+  color: var(--soft-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 900px;
+  width: 90%;
+  padding: 40px 20px;
+}
+
+/* ==========================================================================
+   Hero Header
+   ========================================================================== */
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--deep-rose);
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #8c7379;
+}
+
+.card-number {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--deep-rose);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--deep-rose);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #b55d78;
+}
+
+/* ==========================================================================
+   Landing Page Grid & Cards (index.html)
+   ========================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.date-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid #f9dcc4;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(216, 130, 157, 0.25);
+}
+
+.card-title {
+  font-size: 1.4rem;
+  margin: 5px 0 10px;
+  color: var(--soft-text);
+}
+
+.card-date {
+  font-size: 0.9rem;
+  color: #a3888e;
+  margin-bottom: 15px;
+}
+
+.heart-badge {
+  font-size: 1.5rem;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   Detail Page Structure (date1.html)
+   ========================================================================== */
+.hero-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hero-img:hover {
+  transform: scale(1.01);
+}
+
+.story-section {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: var(--shadow);
+}
+
+.story-section h2 {
+  color: var(--deep-rose);
+  font-weight: normal;
+  border-bottom: 1px solid var(--primary-pink);
+  padding-bottom: 8px;
+  margin-top: 0;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.photo-btn {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #f4acb7, #d8829d);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(216, 130, 157, 0.4);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.photo-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 20px rgba(216, 130, 157, 0.6);
+}
+
+.photo-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ==========================================================================
+   Golden Lines Gallery & Micro Photo Badges
+   ========================================================================== */
+.golden-gallery-section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px 20px;
+  border-radius: 20px;
+  margin: 30px 0;
+  box-shadow: var(--shadow);
+  border: 1px solid #f9dcc4;
+  transition: opacity 0.5s ease;
+}
+
+.golden-gallery-section.hidden {
+  display: none;
+}
+
+.gallery-title {
+  text-align: center;
+  color: var(--deep-rose);
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+
+.gallery-subtitle {
+  text-align: center;
+  font-style: italic;
+  color: #8c7379;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+}
+
+.golden-thread-container {
+  position: relative;
+  width: 100%;
+}
+
+.golden-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connected-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 25px 0;
+}
+
+/* Small Circular Photo Badges */
+.photo-node {
+  width: 80px;
+  height: 80px;
+  background: white;
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(216, 130, 157, 0.3);
+  border: 2px solid #fceade;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.photo-node:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 20px rgba(216, 130, 157, 0.5);
+}
+
+.photo-node.offset-down {
+  transform: translateY(25px);
+}
+
+.photo-node.offset-down:hover {
+  transform: translateY(25px) scale(1.2);
+}
+
+.photo-node img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ==========================================================================
+   Full-Size Lightbox Modal
+   ========================================================================== */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(40, 25, 30, 0.88);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  border: 4px solid #ffffff;
+  animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: #ffffff;
+  font-size: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-lightbox:hover {
+  transform: scale(1.2);
+  color: var(--primary-pink);
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.4); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================================================
+   Floating Particles (Hearts & Wisps)
+   ========================================================================== */
+.particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.floating-heart, .wisp {
+  position: absolute;
+  bottom: -10%;
+  opacity: 0;
+  animation: floatUp linear forwards;
+}
+
+.wisp {
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, rgba(244, 172, 183, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(20px) scale(1);
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(-20px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 600px) {
+  .connected-photos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 10px;
+  }
+  
+  .photo-node.offset-down {
+    transform: translateY(0);
+  }
+  
+  .photo-node.offset-down:hover {
+    transform: scale(1.2);
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+/* --- Floating Music Button --- */
+.music-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f4acb7, #d8829d);
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(216, 130, 157, 0.4);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+}
+
+.music-btn.playing {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(244, 172, 183, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(244, 172, 183, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 172, 183, 0); }
+}
+
+/* --- Side Arrow Trigger Button --- */
+.side-arrow-btn {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: var(--deep-rose);
+  color: white;
+  border: none;
+  padding: 15px 10px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+  z-index: 999;
+  transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.side-arrow-btn:hover {
+  background: #b55d78;
+  padding-right: 15px;
+}
+
+/* --- Sliding Side Gallery Drawer --- */
+.side-gallery {
+  position: fixed;
+  top: 0;
+  right: -380px; /* Hidden by default */
+  width: 350px;
+  height: 100vh;
+  background: rgba(253, 246, 246, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+  z-index: 1001;
+  transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+}
+
+.side-gallery.open {
+  right: 0;
+}
+
+.side-gallery-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--primary-pink);
+}
+
+.side-gallery-header h3 {
+  margin: 0;
+  color: var(--deep-rose);
+}
+
+.close-side-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--soft-text);
+  cursor: pointer;
+}
+
+.side-gallery-grid {
+  padding: 20px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.side-gallery-grid img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.side-gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Hide lightbox arrows by default */
+.lightbox-arrow {
+  display: none; 
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  border: none;
+  font-size: 2rem;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  z-index: 10000;
+}
+
+.lightbox-arrow:hover {
+  background: rgba(244, 172, 183, 0.85);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-arrow { left: 20px; }
+.next-arrow { right: 20px; }
+/* Container for Lightbox image and secret badge */
+.lightbox-image-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 90%;
+  max-height: 85vh;
+}
+
+/* Watermark Badge inside Lightbox (Clean, non-red, non-handwritten) */
+.lightbox-secret-badge {
+  display: none;
+  position: absolute;
+  bottom: 18px;
+  right: 22px;
+  background: rgba(40, 25, 30, 0.45);
+  backdrop-filter: blur(4px);
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  user-select: none;
+  z-index: 10001;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter I: Sunbeams & Whispers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="particle-container" class="particle-container"></div>
+
+  <main class="container detail-container">
+    <a href="index.html" class="back-link">← Return to Our Memories</a>
+    
+    <header class="hero">
+      <span class="card-number">Chapter I</span>
+      <h1>Sunbeams & Whispers</h1>
+      <p class="subtitle">August 19, 2026 — A Sunlit Afternoon to Remember</p>
+      
+      <button id="togglePhotosBtn" class="photo-btn">
+        <span class="btn-heart">✨</span> View Memory Gallery <span class="btn-heart">✨</span>
+      </button>
+    </header>
+
+    <img src="pic3.jpg" alt="Our First Afternoon" class="hero-img previewable" />
+
+    <section class="story-section">
+      <h2>Our Lunch Date 💕</h2>
+      <p>I loved every moment of us, sitting there together, side by side, laughing and holding hands, madly in love with each other. I loved every gentle touch, every caress. I loved feeding my cutieepiee babyyysonaa soo muchhh!!! And all our picss as welll</p>
+    </section>
+
+    <section class="story-section">
+      <h2>The Overbridge 🌉</h2>
+      <p>You were looking so wonderful in that dress, like a fairy princess who'd floated into my life and made me obssessed with her. As we looked at the view, I found my heart skipping as I understood just how much I love you.</p>
+    </section>
+
+    <section id="photoGallerySection" class="golden-gallery-section hidden">
+      <h2 class="gallery-title">My Favourite Memories💖</h2>
+      <p class="gallery-subtitle">Moments woven together by fate, shimmering under the warm afternoon sun.</p>
+      
+      <div class="golden-thread-container">
+        <svg id="goldenLinesSvg" class="golden-svg"></svg>
+        
+        <div class="connected-photos-grid">
+          <div class="photo-node" id="photo1">
+            <img src="pic1.jpg" alt="Memory 1" class="previewable" />
+          </div>
+
+          <div class="photo-node offset-down" id="photo2">
+            <img src="pic3.jpg" alt="Memory 2" class="previewable" />
+          </div>
+
+          <div class="photo-node" id="photo3">
+            <img src="pic4.jpg" alt="Memory 3" class="previewable" />
+          </div>
+
+          <div class="photo-node offset-down" id="photo4">
+            <img src="pic2.jpg" alt="Memory 4" class="previewable" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <span class="close-lightbox">&times;</span>
+    
+    <div class="lightbox-image-wrapper">
+      <img id="lightboxImg" class="lightbox-content" alt="Full view memory" />
+      <span id="lightboxSecretBadge" class="lightbox-secret-badge"></span>
+    </div>
+  </div>
+
+  <!-- Music Toggle Floating Button & Audio Element -->
+  <button id="musicToggleBtn" class="music-btn" title="Toggle Romantic Music">
+    <span id="musicIcon">🎵</span>
+  </button>
+  <audio id="bgMusic" loop src="background.mp3"></audio>
+
+  <!-- Side Arrow Trigger Button -->
+  <button id="openSideGalleryBtn" class="side-arrow-btn" title="Open Full Gallery">
+    ❮
+  </button>
+
+  <!-- Sliding Side Gallery Drawer -->
+  <aside id="sideGallery" class="side-gallery">
+    <div class="side-gallery-header">
+      <h3>Memory Vault 💕</h3>
+      <button id="closeSideGalleryBtn" class="close-side-btn">&times;</button>
+    </div>
+    <div class="side-gallery-grid" id="sideGalleryGrid">
+      <!-- Dynamically populated with 20182.jpg through 20210.jpg via script.js -->
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
