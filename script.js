@@ -5,6 +5,13 @@ const dates = [
     title: "Sunbeams & Whispers",
     date: "August 19, 2026",
     url: "date1.html"
+  },
+  {
+    id: 2,
+    number: "Chapter II",
+    title: "Roaming in Durga Puja",
+    date: "October 17, 2026",
+    url: "date2.html"
   }
 ];
 
@@ -176,12 +183,14 @@ if (musicBtn && bgMusic) {
   });
 }
 
-
 let galleryImages = [];
 let currentImageIndex = -1;
 let secretMap = {}; // Maps gallery index -> secret digit
 
-// 5. Populate Side Gallery (20182 to 20206) & Assign 6 Secret Digits
+// Determine page context based on URL or pathname
+const isDate2 = window.location.pathname.includes("date2") || document.title.includes("Chapter I"); 
+// You can also check via a specific body/container ID if preferred.
+
 const sideGalleryGrid = document.getElementById("sideGalleryGrid");
 const openSideBtn = document.getElementById("openSideGalleryBtn");
 const closeSideBtn = document.getElementById("closeSideGalleryBtn");
@@ -192,10 +201,23 @@ if (sideGalleryGrid) {
   galleryImages = [];
   secretMap = {};
 
-  const startNum = 20182;
-  const endNum = 20206;
-  const totalCount = endNum - startNum + 1;
-  const secretCode = ["7", "2", "1", "2", "2", "4"];
+  let startNum, endNum, secretCode, imagePathFn;
+
+  if (isDate2) {
+    // Configuration for date2 page (1 through 50 inside date2photos folder)
+    startNum = 1;
+    endNum = 50;
+    totalCount = endNum - startNum + 1;
+    secretCode = ["7", "2", "1", "2", "2", "4"]; // Adjust secret digits if needed for date2
+    imagePathFn = (i) => `date2photos/${startNum + i}.jpg`;
+  } else {
+    // Configuration for date1 page (original range 20182 to 20206 in root)
+    startNum = 20182;
+    endNum = 20206;
+    totalCount = endNum - startNum + 1;
+    secretCode = ["7", "2", "1", "2", "2", "4"];
+    imagePathFn = (i) => `${startNum + i}.jpg`;
+  }
 
   // Pick 6 random unique indices
   const secretIndices = [];
@@ -213,13 +235,12 @@ if (sideGalleryGrid) {
 
   // Render side gallery grid images
   for (let i = 0; i < totalCount; i++) {
-    const imgNumber = startNum + i;
-    const imgSrc = `${imgNumber}.jpg`;
+    const imgSrc = imagePathFn(i);
     galleryImages.push(imgSrc);
 
     const img = document.createElement("img");
     img.src = imgSrc;
-    img.alt = `Memory ${imgNumber}`;
+    img.alt = `Memory ${i + 1}`;
     img.className = "side-gallery-item";
     img.dataset.index = i;
     

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter II: Our Puja date</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="particle-container" class="particle-container"></div>
+
+  <main class="container detail-container">
+    <a href="index.html" class="back-link">← Return to Our Memories</a>
+    
+    <header class="hero">
+      <span class="card-number">Chapter II</span>
+      <h1>Our Puja Date</h1>
+      <p class="subtitle">7 whole hours with my cutieepiee </p>
+      
+      <button id="togglePhotosBtn" class="photo-btn">
+        <span class="btn-heart">✨</span> View Memory Gallery <span class="btn-heart">✨</span>
+      </button>
+    </header>
+
+    <img src="date2photos/41.jpg" alt="Our First Afternoon" class="hero-img previewable" />
+
+    <!-- Blank Event Sections -->
+    <section class="story-section">
+      <h2>1. Duo pandal photoshoot 💕</h2>
+      <p>We met up togetherrr and travelled by bus to our school.. I couldn't stop looking at you, you looked soo prettyyyy and cuteeee. 
+         Then we headed to the nearby pandal and I took sooo manyyy cute cute picss of myy cutieepie babyy.
+      </p>
+    </section>
+
+    <img src="date2photos/15.jpg" alt="Our First Afternoon" class="hero-img previewable" />
+
+    <section class="story-section">
+      <h2>2. Group tour 👥</h2>
+      <p>Then everyone else met up and we walked through lots of empty roads, crowded roads and pandals, although I was mostly looking at myyy babyyy only. 
+        We held hands, walked together, did some waistholding, cute cute couple thingsss, and I had sooo muchh fun with you</p>
+    </section>
+
+    <img src="date2photos/47.jpg" alt="Our First Afternoon" class="hero-img previewable" />
+
+    <section class="story-section">
+      <h2>3. Our Lunch 🍽️</h2>
+      <p>Then we headed to a restaurant and ate a lottt.. I loved everyy moment of feeding my wifeyy, headpatting herr, touching herr, getting fedd, etc etc</p>
+    </section>
+
+    <img src="date2photos/48.jpg" alt="Our First Afternoon" class="hero-img previewable" />
+
+    <section class="story-section">
+      <h2>4. Bus and Mall</h2>
+      <p>Myy sexyyyy wifee hasss sooo softtt breastssss .. I want to touch them againn and againnn.. i loved making her squirm right theree.. then we headed to Lake Mall, 
+        where we didn't have much time before we had to go home.. but my only regret was that I wanted to spend more time with herrr</p>
+    </section>
+
+    <section id="photoGallerySection" class="golden-gallery-section hidden">
+      <h2 class="gallery-title">My Favourite Memories💖</h2>
+      <p class="gallery-subtitle">Moments woven together by fate, shimmering under the warm afternoon sun.</p>
+      
+      <div class="golden-thread-container">
+        <svg id="goldenLinesSvg" class="golden-svg"></svg>
+        
+        <div class="connected-photos-grid">
+          <div class="photo-node" id="photo1">
+            <img src="date2photos/2.jpg" alt="Memory 1" class="previewable" />
+          </div>
+
+          <div class="photo-node offset-down" id="photo2">
+            <img src="date2photos/3.jpg" alt="Memory 2" class="previewable" />
+          </div>
+
+          <div class="photo-node" id="photo3">
+            <img src="date2photos/4.jpg" alt="Memory 3" class="previewable" />
+          </div>
+
+          <div class="photo-node offset-down" id="photo4">
+            <img src="date2photos/5.jpg" alt="Memory 4" class="previewable" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <span class="close-lightbox">&times;</span>
+    
+    <div class="lightbox-image-wrapper">
+      <img id="lightboxImg" class="lightbox-content" alt="Full view memory" />
+      <span id="lightboxSecretBadge" class="lightbox-secret-badge"></span>
+    </div>
+  </div>
+
+  <!-- Music Toggle Floating Button & Audio Element -->
+  <button id="musicToggleBtn" class="music-btn" title="Toggle Romantic Music">
+    <span id="musicIcon">🎵</span>
+  </button>
+  <audio id="bgMusic" loop src="background.mp3"></audio>
+
+  <!-- Side Arrow Trigger Button -->
+  <button id="openSideGalleryBtn" class="side-arrow-btn" title="Open Full Gallery">
+    ❮
+  </button>
+
+  <!-- Sliding Side Gallery Drawer -->
+  <aside id="sideGallery" class="side-gallery">
+    <div class="side-gallery-header">
+      <h3>Memory Vault 💕</h3>
+      <button id="closeSideGalleryBtn" class="close-side-btn">&times;</button>
+    </div>
+    <div class="side-gallery-grid" id="sideGalleryGrid">
+      <!-- Dynamically populated with date2photos/1.jpg through date2photos/50.jpg -->
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
