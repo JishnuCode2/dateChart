@@ -187,9 +187,8 @@ let galleryImages = [];
 let currentImageIndex = -1;
 let secretMap = {}; // Maps gallery index -> secret digit
 
-// Determine page context based on URL or pathname
-const isDate2 = window.location.pathname.includes("date2") || document.title.includes("Chapter I"); 
-// You can also check via a specific body/container ID if preferred.
+// Explicitly check if the current page URL or filename contains "date2"
+const isDate2Page = window.location.pathname.toLowerCase().includes("date2");
 
 const sideGalleryGrid = document.getElementById("sideGalleryGrid");
 const openSideBtn = document.getElementById("openSideGalleryBtn");
@@ -201,14 +200,14 @@ if (sideGalleryGrid) {
   galleryImages = [];
   secretMap = {};
 
-  let startNum, endNum, secretCode, imagePathFn;
+  let startNum, endNum, totalCount, secretCode, imagePathFn;
 
-  if (isDate2) {
+  if (isDate2Page) {
     // Configuration for date2 page (1 through 50 inside date2photos folder)
     startNum = 1;
     endNum = 50;
     totalCount = endNum - startNum + 1;
-    secretCode = ["7", "2", "1", "2", "2", "4"]; // Adjust secret digits if needed for date2
+    secretCode = ["7", "2", "1", "2", "2", "4"];
     imagePathFn = (i) => `date2photos/${startNum + i}.jpg`;
   } else {
     // Configuration for date1 page (original range 20182 to 20206 in root)
@@ -240,7 +239,7 @@ if (sideGalleryGrid) {
 
     const img = document.createElement("img");
     img.src = imgSrc;
-    img.alt = `Memory ${i + 1}`;
+    img.alt = `Memory ${startNum + i}`;
     img.className = "side-gallery-item";
     img.dataset.index = i;
     
